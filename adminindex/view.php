@@ -6,6 +6,13 @@
         $qry2 = "SELECT * FROM projinfo where projno = '$projno'";
         $result2 = mysqli_query($link, $qry2);
         $result = mysqli_query($link,$qry);
+        
+        if(empty($_SESSION["user"])){
+          echo ("<script LANGUAGE='JavaScript'>
+              window.alert('Please Login'); 
+           </script>");
+          header("refresh:0;url=../index.php");
+        }
     ?>
 
 <!doctype html>
@@ -31,32 +38,9 @@
   <body>
   <nav class="navbar navbar-expand-lg navbar-light fixed-top background" style="background-color: #000000;">
         
- <!-- login modal popup -->
- <link rel="stylesheet" type="text/css" href="modal.css">
-        <button class="btn btn-outline-light" onclick="document.getElementById('modal-wrapper').style.display='block'">Login</button>
-        <div id="modal-wrapper" class="modal">
-        <form class="modal-content animate" method="POST" action="login.php">
-        <div class="imgcontainer">
-        <span onclick="document.getElementById('modal-wrapper').style.display='none'" class="close" title="Close PopUp">&times;</span>
-        <img src="img/bits.jpg" alt="Avatar" class="avatar">
-        <h1 style="text-align:center">Please type in your account details</h1></div>
-        <div class="container">
-                                <input type="text" name="user" placeholder="Enter Username.." required>
-                                <input type="password" name="pass" placeholder="Enter Password.." required>      
-                                <input type="submit" class="btn btn-dark center" value="Login Account" style=" color: white;padding: 14px 20px;margin: 8px 26px;border: none;cursor: pointer;width: 90%;font-size:20px;">
-        </form>
-        </div>
-        </form>
-        </div>
-        <scrIpt>
-        // If user clicks anywhere outside of the modal, Modal will close
-        var modal = document.getElementById('modal-wrapper');
-        window.onclick = function(event) {
-        if (event.target == modal) {
-        modal.style.display = "none";
-        }
-        }
-        </script>
+
+      <button class="btn btn-outline-light"><a href="LogOut.php">Logout</a></button>
+
 
 
 
@@ -70,7 +54,7 @@
 </li>
 </ul>
 
-<form class="form-inline my-2 my-lg-0" method="POST" action="index.php">
+<form class="form-inline my-2 my-lg-0" method="POST" action="admin.php">
 <input class="form-control mr-sm-2" type="text" ria-label="Search" name="searchit" placeholder="Search..">
 <input class="btn btn-outline-light" type="submit" name="search" value="Search">
 </form>
@@ -78,7 +62,7 @@
 </nav>  
 
 
-<br><br><br>
+<br><br>
 
     <div class="container-fluid">
       <div class="row">
@@ -86,10 +70,22 @@
           <div class="sidebar-sticky">
             <ul class="nav flex-column">
               <li class="nav-item">
-                <a class="nav-link active" href="index.php">
+                <a class="nav-link active" href="admin.php">
                   <span data-feather="home"></span>
                   Projects <span class="sr-only">(current)</span>
                 </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="view_proposals.php">
+                  <span data-feather="file"></span>
+                  View Proposals
+                </a>
+                <li class="nav-item">
+                        <a class="nav-link" href="addproject.php">
+                          <span data-feather="file"></span>
+                          Add Project
+                        </a>
+                    </li>
             </ul>
           </div>
         </nav>
@@ -107,8 +103,6 @@
             </div>
           </div>
           
-
-                               
                     <table>
                     <p class="lead">
                     <h3>Abstract: </h3><?php echo $row2['abstract']?>
@@ -121,6 +115,7 @@
                     </p>
                     <?php endwhile; endwhile; ?>
                     </table>
+
 
 
 

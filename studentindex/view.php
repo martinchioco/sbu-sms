@@ -6,6 +6,13 @@
         $qry2 = "SELECT * FROM projinfo where projno = '$projno'";
         $result2 = mysqli_query($link, $qry2);
         $result = mysqli_query($link,$qry);
+
+        if(empty($_SESSION["user"])){
+          echo ("<script LANGUAGE='JavaScript'>
+              window.alert('Please Login'); 
+           </script>");
+          header("refresh:0;url=../index.php");
+        }
     ?>
 
 <!doctype html>
@@ -21,42 +28,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-    <title>SAD Management System</title>
     <!-- Bootstrap core CSS -->
-    <link href="../../dist/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Custom styles for this template -->
-    <link href="dashboard.css" rel="stylesheet">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <title>SAD Management System</title>
   </head>
+
 
   <body>
   <nav class="navbar navbar-expand-lg navbar-light fixed-top background" style="background-color: #000000;">
         
- <!-- login modal popup -->
- <link rel="stylesheet" type="text/css" href="modal.css">
-        <button class="btn btn-outline-light" onclick="document.getElementById('modal-wrapper').style.display='block'">Login</button>
-        <div id="modal-wrapper" class="modal">
-        <form class="modal-content animate" method="POST" action="login.php">
-        <div class="imgcontainer">
-        <span onclick="document.getElementById('modal-wrapper').style.display='none'" class="close" title="Close PopUp">&times;</span>
-        <img src="img/bits.jpg" alt="Avatar" class="avatar">
-        <h1 style="text-align:center">Please type in your account details</h1></div>
-        <div class="container">
-                                <input type="text" name="user" placeholder="Enter Username.." required>
-                                <input type="password" name="pass" placeholder="Enter Password.." required>      
-                                <input type="submit" class="btn btn-dark center" value="Login Account" style=" color: white;padding: 14px 20px;margin: 8px 26px;border: none;cursor: pointer;width: 90%;font-size:20px;">
-        </form>
-        </div>
-        </form>
-        </div>
-        <scrIpt>
-        // If user clicks anywhere outside of the modal, Modal will close
-        var modal = document.getElementById('modal-wrapper');
-        window.onclick = function(event) {
-        if (event.target == modal) {
-        modal.style.display = "none";
-        }
-        }
-        </script>
+
+      <div class="dropdown">
+  <button class="btn btn-dark dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+  <?php echo $_SESSION["user"]?>
+  </button>
+  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+    <a class="dropdown-item" href="LogOut.php">Logout</a>
+  </div>
+</div>
+
 
 
 
@@ -70,26 +60,30 @@
 </li>
 </ul>
 
-<form class="form-inline my-2 my-lg-0" method="POST" action="index.php">
-<input class="form-control mr-sm-2" type="text" ria-label="Search" name="searchit" placeholder="Search..">
-<input class="btn btn-outline-light" type="submit" name="search" value="Search">
-</form>
+
 </div>
 </nav>  
 
 
-<br><br><br>
+<br><br>
 
-    <div class="container-fluid">
+       <div class="container-fluid">
       <div class="row">
         <nav class="col-md-2 d-none d-md-block bg-light sidebar">
           <div class="sidebar-sticky">
             <ul class="nav flex-column">
               <li class="nav-item">
-                <a class="nav-link active" href="index.php">
+                <a class="nav-link active" href="student.php">
                   <span data-feather="home"></span>
                   Projects <span class="sr-only">(current)</span>
                 </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="submitproposal.php">
+                  <span data-feather="file"></span>
+                  Submit Proposal
+                </a>
+                </li>
             </ul>
           </div>
         </nav>
@@ -107,8 +101,6 @@
             </div>
           </div>
           
-
-                               
                     <table>
                     <p class="lead">
                     <h3>Abstract: </h3><?php echo $row2['abstract']?>
@@ -125,26 +117,19 @@
 
 
 
+
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
-    <script src="jquery/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
-    <script src="../../assets/js/vendor/popper.min.js"></script>
-    <script src="../../dist/js/bootstrap.min.js"></script>
+    <script src="jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script>window.jQuery || document.write('<script src="jquery/jquery-slim.min.js"><\/script>')</script>
+    <script src="popper.min.js"></script>
+    <script src="bootstrap.min.js"></script>
 
     <!-- Icons -->
     <script src="jquery/feather.min.js"></script>
     <script>
       feather.replace()
     </script>
-
-
-    
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="jquery/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="jquery/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-    <script src="bootstrap/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
   </body>
 </html>

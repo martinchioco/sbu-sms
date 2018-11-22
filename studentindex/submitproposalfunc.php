@@ -1,5 +1,5 @@
 <?php
-$link = new mysqli('localhost','root','','heroku_a71bbafdab8fcb3');
+$link = new mysqli('us-cdbr-iron-east-01.cleardb.net','bd7296d2ac0eff','4b840f06','heroku_a71bbafdab8fcb3');
 $groupcode = $_POST['groupcode'];
 $submitdate = $_POST['submitdate'];
 $lfname = $_POST['lfname'];

@@ -1,6 +1,6 @@
 <?php
     session_start();
-    $link = new mysqli('localhost','root','','heroku_a71bbafdab8fcb3');
+    $link = new mysqli('us-cdbr-iron-east-01.cleardb.net','bd7296d2ac0eff','4b840f06','heroku_a71bbafdab8fcb3');
     if(isset($_POST['search'])){
         $search = $_POST['searchit'];
         $qry = "SELECT * FROM projects,projinfo WHERE CONCAT(Title,yr,grpnum,projects.projno) LIKE '%".$search."%' and projects.projno=projinfo.projno";
@@ -11,14 +11,15 @@
         $qry = "SELECT * FROM projects,projinfo where projects.projno=projinfo.projno";
         $result = mysqli_query($link,$qry);
     }
-    
+
     if(empty($_SESSION["user"])){
       echo ("<script LANGUAGE='JavaScript'>
-          window.alert('Please Login'); 
+          window.alert('Please Login');
        </script>");
       header("refresh:0;url=../index.php");
     }
 ?>
+
 
 
 <!doctype html>
@@ -42,16 +43,22 @@
   <body>
   <nav class="navbar navbar-expand-lg navbar-light fixed-top background" style="background-color: #000000;">
         
-  <div class="dropdown">
+
+
+
+
+ <div class="dropdown">
   <button class="btn btn-dark dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
   <?php echo $_SESSION["user"]?>
   </button>
   <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
     <a class="dropdown-item" href="LogOut.php">Logout</a>
+    <a class="dropdown-item" href="register.php">Register account</a>
+    <a class="dropdown-item" href="manageaccounts.php">Manage Accounts</a>
   </div>
-</div> 
+</div>
 
-
+      
 
 
 
@@ -65,9 +72,9 @@
 </li>
 </ul>
 
-<form class="form-inline my-2 my-lg-0" method="POST" action="index.php">
+<form class="form-inline my-2 my-lg-0" method="POST" action="admin.php">
 <input class="form-control mr-sm-2" type="text" ria-label="Search" name="searchit" placeholder="Search..">
-<input class="btn btn-outline-light my-2 my-sm-0" type="submit" name="search" value="Search">
+<input class="btn btn-outline-light" type="submit" name="search" value="Search">
 </form>
 </div>
 </nav>  
@@ -81,17 +88,24 @@
           <div class="sidebar-sticky">
             <ul class="nav flex-column">
               <li class="nav-item">
-                <a class="nav-link active" href="student.php">
+                <a class="nav-link active" href="admin.php">
                   <span data-feather="home"></span>
                   Projects <span class="sr-only">(current)</span>
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="submitproposal.php">
+                <a class="nav-link" href="view_proposals.php">
                   <span data-feather="file"></span>
-                  Submit Proposal
+                  View Proposal
                 </a>
-                </li>
+            </li>
+              <li class="nav-item">
+                        <a class="nav-link" href="addproject.php">
+                          <span data-feather="file"></span>
+                          Add Project
+                        </a>
+                    </li>
+  
             </ul>
           </div>
         </nav>
@@ -111,13 +125,17 @@
             <table class="table table-hover">
         <thead>
             <tr>
-                <th scope="col">Project Title</th>
+            <th scope="col">Project Title</th>
                 <th scope="col">Year</th>
-                
+                <th scope="col">Update </th>
             </tr>
         </thead>
-        
-        <?php while($row = mysqli_fetch_array($result)):?>
+        <tbody>
+            <tr>
+
+
+
+             <?php while($row = mysqli_fetch_array($result)):?>
               <tbody>
               <tr>
               
@@ -138,22 +156,30 @@
               <h2><?php echo $row['yr']?></h2>
               </th>
 
-              </tr>
-              </tbody>
-              <?php endwhile;?>
-
+      
+             
+                <form method="POST" action="update.php">
+                            
+                                    <input type="hidden" name="projno" value=<?php echo $row['projno']?>>
+                                    <td><input class="btn btn-outline-dark" type="submit" name="update" value="UPDATE"> </td>
+                </form>
+  
+                </tr>
+                </tbody>
+                <?php endwhile;?>
 </table>
             </div>
           </div>
 
 
+  
    <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
-    <script src="jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="jquery/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script>window.jQuery || document.write('<script src="jquery/jquery-slim.min.js"><\/script>')</script>
-    <script src="popper.min.js"></script>
-    <script src="bootstrap.min.js"></script>
+    <script src="jquery/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
 
     <!-- Icons -->
     <script src="jquery/feather.min.js"></script>
