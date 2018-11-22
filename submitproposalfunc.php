@@ -1,5 +1,5 @@
 <?php
-$link = new mysqli('localhost','root','','SAD');
+$link = new mysqli('localhost','root','','heroku_a71bbafdab8fcb3');
 $groupcode = $_POST['groupcode'];
 $submitdate = $_POST['submitdate'];
 $lfname = $_POST['lfname'];
