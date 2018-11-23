@@ -31,7 +31,7 @@ $scope = $_POST['scope'];
             //header("refresh:2; url=addrec.html");
         }
         else{
-            $qry = "INSERT INTO projectproposal  VALUES ('$groupcode', '$submitdate', '$lfname', '$llname', '$m1fnme', '$m1lname', '$m2fnme', '$m2lname', '$m3fnme', '$m3lname', '$m4fnme', '$m4lname', '$title', '$ownername', '$businessaddress', '$yearsexistence','$contact', '$productservice', '$transactionnum', '$branchloc', '$scope')";
+            $qry = "INSERT INTO projectproposal  VALUES ('$groupcode', '$submitdate', '$lfname', '$llname', '$m1fname', '$m1lname', '$m2fnme', '$m2lname', '$m3fnme', '$m3lname', '$m4fnme', '$m4lname', '$title', '$ownername', '$businessaddress', '$yearsexistence','$contact', '$productservice', '$transactionnum', '$branchloc', '$scope')";
             $qry2= "SELECT * FROM projectproposal";
             $res = mysqli_query($link,$qry2);
                 while($row = mysqli_fetch_array($res)):

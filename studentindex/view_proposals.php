@@ -3,11 +3,7 @@
     $link = new mysqli('us-cdbr-iron-east-01.cleardb.net','bd7296d2ac0eff','4b840f06','heroku_a71bbafdab8fcb3');
     if(isset($_POST['search'])){
         $search = $_POST['searchit'];
-        $qry = "SELECT * FROM projectproposal WHERE CONCAT(Title,yr,groupcode) LIKE '%".$search."%' AND groupcode='$_SESSION["user"]'";
-        $result = mysqli_query($link,$qry);
-    }
-    else{
-        $qry = "SELECT * FROM projectproposal";
+        $qry = "SELECT * FROM projectproposal where groupcode='$_SESSION["user"]'";
         $result = mysqli_query($link,$qry);
     }
     
@@ -61,10 +57,7 @@
 </li>
 </ul>
 
-<form class="form-inline my-2 my-lg-0" method="POST" action="view_proposals.php">
-<input class="form-control mr-sm-2" type="text" ria-label="Search" name="searchit" placeholder="Search..">
-<input class="btn btn-outline-light" type="submit" name="search" value="Search">
-</form>
+
 </div>
 </nav>  
 
