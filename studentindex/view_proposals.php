@@ -30,6 +30,19 @@
   
 
   
+  <!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <title>SAD Management System</title>
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+  </head>
+  
   <body>
   <nav class="navbar navbar-expand-lg navbar-light fixed-top background" style="background-color: #000000;">
         
@@ -56,7 +69,10 @@
 </li>
 </ul>
 
-
+<form class="form-inline my-2 my-lg-0" method="POST" action="index.php">
+<input class="form-control mr-sm-2" type="text" ria-label="Search" name="searchit" placeholder="Search..">
+<input class="btn btn-outline-light my-2 my-sm-0" type="submit" name="search" value="Search">
+</form>
 </div>
 </nav>  
 
@@ -89,6 +105,7 @@
             </ul>
           </div>
         </nav>
+    
 
     
     <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
