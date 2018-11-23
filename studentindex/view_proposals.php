@@ -1,15 +1,10 @@
 <?php
     session_start();
     $link = new mysqli('us-cdbr-iron-east-01.cleardb.net','bd7296d2ac0eff','4b840f06','heroku_a71bbafdab8fcb3');
-    if(isset($_POST['search'])){
-        $search = $_POST['searchit'];
-        $qry = "SELECT * FROM projectproposal WHERE CONCAT(Title,yr,grpnum,projno) LIKE '%".$search."%'";
+
+        $qry = "SELECT * FROM projectproposal WHERE groupcode='$_SESSION["user"]'";
         $result = mysqli_query($link,$qry);
-    }
-    else{
-        $qry = "SELECT * FROM projectproposal";
-        $result = mysqli_query($link,$qry);
-    }
+ 
     
     if(empty($_SESSION["user"])){
       echo ("<script LANGUAGE='JavaScript'>
@@ -63,10 +58,7 @@
 </li>
 </ul>
 
-<form class="form-inline my-2 my-lg-0" method="POST" action="view_proposals.php">
-<input class="form-control mr-sm-2" type="text" ria-label="Search" name="searchit" placeholder="Search..">
-<input class="btn btn-outline-light" type="submit" name="search" value="Search">
-</form>
+
 </div>
 </nav>  
 
@@ -77,27 +69,26 @@
       <div class="row">
         <nav class="col-md-2 d-none d-md-block bg-light sidebar">
           <div class="sidebar-sticky">
-          <ul class="nav flex-column">
+            <ul class="nav flex-column">
               <li class="nav-item">
-                <a class="nav-link active" href="admin.php">
+                <a class="nav-link active" href="student.php">
                   <span data-feather="home"></span>
                   Projects <span class="sr-only">(current)</span>
                 </a>
               </li>
               <li class="nav-item">
+                <a class="nav-link" href="submitproposal.php">
+                  <span data-feather="file"></span>
+                  Submit Proposal
+                </a>
+              </li>
+              <li class="nav-item">
                 <a class="nav-link" href="view_proposals.php">
                   <span data-feather="file"></span>
-                  View Proposal
+                  View Submitted Proposals
                 </a>
-            </li>
-              <li class="nav-item">
-                        <a class="nav-link" href="addproject.php">
-                          <span data-feather="file"></span>
-                          Add Project
-                        </a>
-                    </li>
-  
-            </ul>   
+              </li>
+            </ul>
           </div>
         </nav>
 
