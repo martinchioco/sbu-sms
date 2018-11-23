@@ -31,17 +31,14 @@
   <body>
   <nav class="navbar navbar-expand-lg navbar-light fixed-top background" style="background-color: #000000;">
         
-
- <div class="dropdown">
+  <div class="dropdown">
   <button class="btn btn-dark dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
   <?php echo $_SESSION["user"]?>
   </button>
   <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
     <a class="dropdown-item" href="LogOut.php">Logout</a>
-    <a class="dropdown-item" href="register.php">Register account</a>
-    <a class="dropdown-item" href="manageaccounts.php">Manage Accounts</a>
   </div>
-</div>
+</div> 
 
 
 
