@@ -3,7 +3,11 @@
     $link = new mysqli('us-cdbr-iron-east-01.cleardb.net','bd7296d2ac0eff','4b840f06','heroku_a71bbafdab8fcb3');
     if(isset($_POST['search'])){
         $search = $_POST['searchit'];
-        $qry = "SELECT * FROM projectproposal where groupcode='$_SESSION["user"]'";
+        $qry = "SELECT * FROM projectproposal WHERE CONCAT(Title,yr,grpnum,projno) LIKE '%".$search."%'";
+        $result = mysqli_query($link,$qry);
+    }
+    else{
+        $qry = "SELECT * FROM projectproposal";
         $result = mysqli_query($link,$qry);
     }
     
@@ -40,6 +44,8 @@
   </button>
   <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
     <a class="dropdown-item" href="LogOut.php">Logout</a>
+    <a class="dropdown-item" href="register.php">Register account</a>
+    <a class="dropdown-item" href="manageaccounts.php">Manage Accounts</a>
   </div>
 </div>
 
@@ -57,7 +63,10 @@
 </li>
 </ul>
 
-
+<form class="form-inline my-2 my-lg-0" method="POST" action="view_proposals.php">
+<input class="form-control mr-sm-2" type="text" ria-label="Search" name="searchit" placeholder="Search..">
+<input class="btn btn-outline-light" type="submit" name="search" value="Search">
+</form>
 </div>
 </nav>  
 
@@ -68,28 +77,30 @@
       <div class="row">
         <nav class="col-md-2 d-none d-md-block bg-light sidebar">
           <div class="sidebar-sticky">
-            <ul class="nav flex-column">
+          <ul class="nav flex-column">
               <li class="nav-item">
-                <a class="nav-link active" href="student.php">
+                <a class="nav-link active" href="admin.php">
                   <span data-feather="home"></span>
                   Projects <span class="sr-only">(current)</span>
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="submitproposal.php">
-                  <span data-feather="file"></span>
-                  Submit Proposal
-                </a>
-              </li>
-              <li class="nav-item">
                 <a class="nav-link" href="view_proposals.php">
                   <span data-feather="file"></span>
-                  View Submitted Proposals
+                  View Proposal
                 </a>
-              </li>
-            </ul>
+            </li>
+              <li class="nav-item">
+                        <a class="nav-link" href="addproject.php">
+                          <span data-feather="file"></span>
+                          Add Project
+                        </a>
+                    </li>
+  
+            </ul>   
           </div>
         </nav>
+
     
     <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
           <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
