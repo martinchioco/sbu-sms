@@ -1,26 +1,26 @@
 <?php
 $link = new mysqli('us-cdbr-iron-east-01.cleardb.net','bd7296d2ac0eff','4b840f06','heroku_a71bbafdab8fcb3');
-$groupcode = mysql_real_escape_string($_POST['groupcode']);
-$submitdate = mysql_real_escape_string($_POST['submitdate']);
-$lfname = mysql_real_escape_string($_POST['lfname']);
-$llname = mysql_real_escape_string($_POST['llname']);
-$m1fname = mysql_real_escape_string($_POST['m1fname']);
-$m1lname = mysql_real_escape_string($_POST['m1lname']);
-$m2fnme = mysql_real_escape_string($_POST['m2fname']);
-$m2lname = mysql_real_escape_string($_POST['m2lname']);
-$m3fnme = mysql_real_escape_string($_POST['m3fname']);
-$m3lname = mysql_real_escape_string($_POST['m3lname']);
-$m4fnme = mysql_real_escape_string($_POST['m4fname']);
-$m4lname = mysql_real_escape_string($_POST['m4lname']);
-$title = mysql_real_escape_string($_POST['title']);
-$ownername = mysql_real_escape_string($_POST['ownername']);
-$businessaddress = mysql_real_escape_string($_POST['businessaddress']);
-$yearsexistence = mysql_real_escape_string($_POST['yearexistence']);
-$contact = mysql_real_escape_string($_POST['contact']);
-$productservice = mysql_real_escape_string($_POST['productservice']);
-$transactionnum = mysql_real_escape_string($_POST['transactionnum']);
-$branchloc = mysql_real_escape_string($_POST['branchloc']);
-$scope = mysql_real_escape_string($_POST['scope']);
+$groupcode = $_POST['groupcode'];
+$submitdate = $_POST['submitdate'];
+$lfname = $_POST['lfname'];
+$llname = $_POST['llname'];
+$m1fname = $_POST['m1fname'];
+$m1lname = $_POST['m1lname'];
+$m2fnme = $_POST['m2fname'];
+$m2lname = $_POST['m2lname'];
+$m3fnme = $_POST['m3fname'];
+$m3lname = $_POST['m3lname'];
+$m4fnme = $_POST['m4fname'];
+$m4lname = $_POST['m4lname'];
+$title = $_POST['title'];
+$ownername = $_POST['ownername'];
+$businessaddress = $_POST['businessaddress'];
+$yearsexistence = $_POST['yearexistence'];
+$contact = $_POST['contact'];
+$productservice = $_POST['productservice'];
+$transactionnum = $_POST['transactionnum'];
+$branchloc = $_POST['branchloc'];
+$scope = $_POST['scope'];
 
 
 

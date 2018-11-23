@@ -1,13 +1,13 @@
 <?php
 $link = new mysqli('us-cdbr-iron-east-01.cleardb.net','bd7296d2ac0eff','4b840f06','heroku_a71bbafdab8fcb3');
-    $title = mysql_real_escape_string($_POST['title']);
-    $year = mysql_real_escape_string($_POST['year']);
-    $grp = mysql_real_escape_string($_POST['grp']);
-    $projno = mysql_real_escape_string($_POST['projno']);
-    $abstract = mysql_real_escape_string($_POST['objectuves']); 
-    $objectives = mysql_real_escape_string($_POST['objectives']);
-    $scope = mysql_real_escape_string($_POST['scope']);
-    $purpose = mysql_real_escape_string($_POST['purpose']); 
+    $title = $_POST['title'];
+    $year = $_POST['year'];
+    $grp = $_POST['grp'];
+    $projno = $_POST['projno'];
+    $abstract = $_POST['objectuves']; 
+    $objectives = $_POST['objectives'];
+    $scope = $_POST['scope'];
+    $purpose = $_POST['purpose']; 
     $count=0;
     //$proj1 = str_ireplace($_POST['proj']);
 if(empty($title)){

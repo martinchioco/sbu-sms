@@ -1,10 +1,10 @@
 <?php
 $link = new mysqli('us-cdbr-iron-east-01.cleardb.net','bd7296d2ac0eff','4b840f06','heroku_a71bbafdab8fcb3');
-    $account_id = mysql_real_escape_string($_POST['account_id']);
-    $user = mysql_real_escape_string($_POST['user']);
-    $pass = mysql_real_escape_string($_POST['pass']);
-    $acctype = mysql_real_escape_string($_POST['acctype']);
-    $contact = mysql_real_escape_string($_POST['contact']);
+    $account_id = $_POST['account_id'];
+    $user = $_POST['user'];
+    $pass = $_POST['pass'];
+    $acctype = $_POST['acctype'];
+    $contact = $_POST['contact'];
     $count = 0;
 
     if($acctype == 'retry'){
