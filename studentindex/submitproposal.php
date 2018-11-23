@@ -95,7 +95,7 @@
           <table>
                             <td style="width: 50%">
                                 <label><b>Group Code:</b></label><br>
-                                <input type="text" name="groupcode" maxlength="30" style="width: 360px" required>
+                                <input type="text" name="groupcode" maxlength="30" style="width: 360px" value="<?php echo $_SESSION["user"]?>" readonly required>
                             </td>
                             <td style="width: 50%">
                                 <label><b>Date Submitted:</b></label><br>
