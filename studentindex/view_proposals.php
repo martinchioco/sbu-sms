@@ -39,6 +39,18 @@
     <a class="dropdown-item" href="LogOut.php">Logout</a>
   </div>
 </div> 
+  
+  <body>
+  <nav class="navbar navbar-expand-lg navbar-light fixed-top background" style="background-color: #000000;">
+        
+  <div class="dropdown">
+  <button class="btn btn-dark dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+  <?php echo $_SESSION["user"]?>
+  </button>
+  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+    <a class="dropdown-item" href="LogOut.php">Logout</a>
+  </div>
+</div> 
 
 
 
@@ -126,13 +138,13 @@
 
 
   
- <!-- Bootstrap core JavaScript
+   <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
-    <script src="jquery/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script>window.jQuery || document.write('<script src="jquery/jquery-slim.min.js"><\/script>')</script>
-    <script src="jquery/popper.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
+    <script src="popper.min.js"></script>
+    <script src="bootstrap.min.js"></script>
 
     <!-- Icons -->
     <script src="jquery/feather.min.js"></script>
