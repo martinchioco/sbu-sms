@@ -1,6 +1,6 @@
 <?php
 session_start();
-$link = new mysqli('localhost','root','','SAD');
+$link = new mysqli('us-cdbr-iron-east-01.cleardb.net','bd7296d2ac0eff','4b840f06','heroku_a71bbafdab8fcb3');
     $title = $_POST['title'];
     $projno = $_POST['projno'];
 else if(isset($_POST['delete'])){
