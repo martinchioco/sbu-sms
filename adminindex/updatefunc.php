@@ -1,14 +1,14 @@
 <?php
 session_start();
 $link = new mysqli('us-cdbr-iron-east-01.cleardb.net','bd7296d2ac0eff','4b840f06','heroku_a71bbafdab8fcb3');
-$title = $_POST['title'];
-$projno = $_POST['projno'];
-$year = $_POST['year'];
-$grp = $_POST['grp'];
-$abstract = $_POST['abstract'];
-$objectives = $_POST['objectives'];
-$scope = $_POST['scope'];
-$purpose = $_POST['purpose'];
+$title = mysql_real_escape_string($_POST['title']);
+$year = mysql_real_escape_string($_POST['year']);
+$grp = mysql_real_escape_string($_POST['grp']);
+$projno = mysql_real_escape_string($_POST['projno']);
+$abstract = mysql_real_escape_string($_POST['objectuves']); 
+$objectives = mysql_real_escape_string($_POST['objectives']);
+$scope = mysql_real_escape_string($_POST['scope']);
+$purpose = mysql_real_escape_string($_POST['purpose']);
 
 
     $qry = "UPDATE projects SET Title = '$title' , yr='$year', grpnum='$grp' WHERE $projno = projno";

@@ -1,4 +1,4 @@
-<?php
+  <?php
     session_start();
     $link = new mysqli('us-cdbr-iron-east-01.cleardb.net','bd7296d2ac0eff','4b840f06','heroku_a71bbafdab8fcb3');
     if(isset($_POST['search'])){
@@ -25,21 +25,16 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <link rel="icon" href="../../../../favicon.ico">
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <title>SAD Management System</title>
     <!-- Bootstrap core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
-    <title>SAD Management System</title>
   </head>
-
+  
   <body>
   <nav class="navbar navbar-expand-lg navbar-light fixed-top background" style="background-color: #000000;">
         
@@ -128,6 +123,7 @@
             <th scope="col">Project Title</th>
                 <th scope="col">Year</th>
                 <th scope="col">Update </th>
+                <th scope="col">Update </th>
             </tr>
         </thead>
         <tbody>
@@ -163,7 +159,11 @@
                                     <input type="hidden" name="projno" value=<?php echo $row['projno']?>>
                                     <td><input class="btn btn-outline-dark" type="submit" name="update" value="UPDATE"> </td>
                 </form>
-  
+                <form method="POST" action="deletefunc.php">
+                            
+                            <input type="hidden" name="projno" value=<?php echo $row['projno']?>>
+                            <td><input class="btn btn-outline-dark" type="submit" name="delete" value="DELETE"> </td>
+        </form>
                 </tr>
                 </tbody>
                 <?php endwhile;?>
