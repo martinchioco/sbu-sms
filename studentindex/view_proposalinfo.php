@@ -73,24 +73,23 @@
           <div class="sidebar-sticky">
             <ul class="nav flex-column">
               <li class="nav-item">
-                <a class="nav-link active" href="admin.php">
+                <a class="nav-link active" href="student.php">
                   <span data-feather="home"></span>
                   Projects <span class="sr-only">(current)</span>
                 </a>
               </li>
               <li class="nav-item">
+                <a class="nav-link" href="submitproposal.php">
+                  <span data-feather="file"></span>
+                  Submit Proposal
+                </a>
+              </li>
+              <li class="nav-item">
                 <a class="nav-link" href="view_proposals.php">
                   <span data-feather="file"></span>
-                  View Proposal
+                  View Submitted Proposals
                 </a>
-            </li>
-              <li class="nav-item">
-                        <a class="nav-link" href="addproject.php">
-                          <span data-feather="file"></span>
-                          Add Project
-                        </a>
-                    </li>
-  
+              </li>
             </ul>
           </div>
         </nav>
