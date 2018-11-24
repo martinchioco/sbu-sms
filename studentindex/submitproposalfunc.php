@@ -32,22 +32,22 @@ $scope = $_POST['scope'];
         }
         else{
             $qry = "INSERT INTO projectproposal  VALUES ('$groupcode', '$submitdate', '$lfname', '$llname', '$m1fname', '$m1lname', '$m2fnme', '$m2lname', '$m3fnme', '$m3lname', '$m4fnme', '$m4lname', '$title', '$ownername', '$businessaddress', '$yearsexistence','$contact', '$productservice', '$transactionnum', '$branchloc', '$scope')";
-            $qry2= "SELECT COUNT(groupcode) as howmany from projectproposals where groupcode='$groupcode'";
+            $qry2= "SELECT COUNT(groupcode) as howmany from projectproposal where groupcode='$groupcode'";
             $res = mysqli_query($link,$qry2);
                 while($row = mysqli_fetch_array($res)):
                     // $Check= str_ireplace($row['Title']);
-                    if('howmany' >= 5){
+                    if $row['howmany'] >=5{
                         echo "Sorry" . $row['groupcode'] . ", you reached the limit already";
                        // header("refresh:2; url=submitproposal.html");
                         mysqli_close($link);
                         $count++;
                     }
-                endwhile;
-            if('howmany' <= 4){
+                if $row['howmany'] <=4{
                 mysqli_query($link,$qry);
                 //header("refresh:2;student.php");
                 mysqli_close($link);
             }
+        endwhile;
         }
        
 require('PDF/fpdf.php');
