@@ -238,7 +238,7 @@
                                 
                                 <input class="btn btn-outline-dark" name="accept" type="submit" value="ACCEPT">
                                 <input class="btn btn-outline-dark" type="submit" name="reject" value="REJECT">
-                                <input type="hidden" name="groupcode" value="<?php echo $row['groupcode']?>"> 
+                                <input type="hidden" name="proposalnum" value="<?php echo $row['proposalnum']?>"> 
                                 
                             </td></tr>
                             </div>
