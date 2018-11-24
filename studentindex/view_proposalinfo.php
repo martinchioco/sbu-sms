@@ -232,10 +232,7 @@
                           <tr><td colspan="2" style="text-align: center">
                                 <br><br>
                                 
-                                <input class="btn btn-outline-dark" name="accept" type="submit" value="ACCEPT">
-                                <input class="btn btn-outline-dark" type="submit" name="reject" value="REJECT">
-                                <input type="hidden" name="groupcode" value="<?php echo $row['groupcode']?>"> 
-                                
+
                             </td></tr>
                             </div>
                             <?php endwhile;?>

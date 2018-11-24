@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 21, 2018 at 09:16 AM
+-- Generation Time: Nov 24, 2018 at 01:34 AM
 -- Server version: 10.1.34-MariaDB
 -- PHP Version: 7.2.8
 
@@ -28,6 +28,7 @@ SET time_zone = "+00:00";
 -- Table structure for table `acc_info`
 --
 
+use heroku_a71bbafdab8fcb3;
 
 CREATE TABLE `acc_info` (
   `account_id` int(5) NOT NULL,
@@ -47,8 +48,7 @@ INSERT INTO `acc_info` (`account_id`, `user`, `pass`, `acctype`, `contact`) VALU
 (15, 'kirby', '81dc9bdb52d04dc20036dbd8313ed055', 'student', '12341234'),
 (16, 'kirky', '81dc9bdb52d04dc20036dbd8313ed055', 'student', '1234'),
 (17, 'kiki', '81dc9bdb52d04dc20036dbd8313ed055', 'student', '1234'),
-(18, 'kirbyt', '4120e7d1f6b0321cdb244c0e7a92d6aa', 'student', '1234'),
-(19, 'student', 'cd73502828457d15655bbd7a63fb0bc8', 'student', '1234');
+(22, '&lt;script&gt;alert(1)&lt;/script&gt;', '81dc9bdb52d04dc20036dbd8313ed055', 'student', '<script>alert(1)</script>');
 
 -- --------------------------------------------------------
 
@@ -57,6 +57,7 @@ INSERT INTO `acc_info` (`account_id`, `user`, `pass`, `acctype`, `contact`) VALU
 --
 
 CREATE TABLE `projectproposal` (
+  `proposalnum` int(5) NOT NULL,
   `groupcode` varchar(10) NOT NULL,
   `submitdate` date NOT NULL,
   `lfname` varchar(20) DEFAULT NULL,
@@ -84,8 +85,9 @@ CREATE TABLE `projectproposal` (
 -- Dumping data for table `projectproposal`
 --
 
-INSERT INTO `projectproposal` (`groupcode`, `submitdate`, `lfname`, `llname`, `m1fname`, `m1lname`, `m2fname`, `m2lname`, `m3fname`, `m3lname`, `m4fname`, `m4lname`, `title`, `ownername`, `businessaddress`, `yearsexistence`, `contact`, `productservice`, `transactionnum`, `branchloc`, `scope`) VALUES
-('1', '2018-10-12', 'Gabriel', 'Muralla', 'Martin', 'Chioco', 'Kirby', 'Templonuevo', 'Karl', 'Rodriguez', 'Darren', 'Dulay', 'ProposedSadDatabaseManagement', 'SBU', 'Manila', '201123', '5', 'School', '20', 'Manila', 'qweqweqweqewqeqe');
+INSERT INTO `projectproposal` (`proposalnum`, `groupcode`, `submitdate`, `lfname`, `llname`, `m1fname`, `m1lname`, `m2fname`, `m2lname`, `m3fname`, `m3lname`, `m4fname`, `m4lname`, `title`, `ownername`, `businessaddress`, `yearsexistence`, `contact`, `productservice`, `transactionnum`, `branchloc`, `scope`) VALUES
+(1, '1', '2018-10-12', 'Gabriel', 'Muralla', 'Martin', 'Chioco', 'Kirby', 'Templonuevo', 'Karl', 'Rodriguez', 'Darren', 'Dulay', 'ProposedSadDatabaseManagement', 'SBU', 'Manila', '201123', '5', 'School', '20', 'Manila', 'qweqweqweqewqeqe'),
+(2, 'student', '2018-11-21', 'z', 'z', 'z', 'z', 'z', 'z', 'z', 'z', 'z', 'z', 'z', 'z', 'z', 'z', 'z', 'z', 'z', 'z', 'z');
 
 -- --------------------------------------------------------
 
@@ -107,7 +109,8 @@ CREATE TABLE `projects` (
 INSERT INTO `projects` (`Title`, `yr`, `grpnum`, `projno`) VALUES
 ('Marketing', 2018, '1A', 1),
 ('Sad database management', 2018, '6A-2018', 2),
-('qweazxcz', 2021, '1', 3);
+('qweazxcz', 2021, '1', 3),
+('qwe', 2018, '1', 4);
 
 -- --------------------------------------------------------
 
@@ -130,7 +133,9 @@ CREATE TABLE `projinfo` (
 INSERT INTO `projinfo` (`projno`, `abstract`, `objectives`, `scope`, `purpose`) VALUES
 (1, 'Abs', 'Obj', 'Sco', 'Pur'),
 (2, 'qbas', 'asdqwe', 'qwe', 'qwtqwe'),
-(3, 'qwe', '123', '123', '123');
+(3, 'qwe', '123', '123', '123'),
+(4, 'qwe', 'qwe', 'qwe', 'qwe'),
+(5, 'qwe', 'qwe', 'qwe', 'qwe');
 
 -- --------------------------------------------------------
 
@@ -176,7 +181,7 @@ ALTER TABLE `acc_info`
 -- Indexes for table `projectproposal`
 --
 ALTER TABLE `projectproposal`
-  ADD PRIMARY KEY (`groupcode`);
+  ADD PRIMARY KEY (`proposalnum`);
 
 --
 -- Indexes for table `projects`
@@ -204,19 +209,25 @@ ALTER TABLE `proposeaccept`
 -- AUTO_INCREMENT for table `acc_info`
 --
 ALTER TABLE `acc_info`
-  MODIFY `account_id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `account_id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+
+--
+-- AUTO_INCREMENT for table `projectproposal`
+--
+ALTER TABLE `projectproposal`
+  MODIFY `proposalnum` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `projects`
 --
 ALTER TABLE `projects`
-  MODIFY `projno` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `projno` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `projinfo`
 --
 ALTER TABLE `projinfo`
-  MODIFY `projno` int(89) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `projno` int(89) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

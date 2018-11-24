@@ -31,22 +31,21 @@ $scope = $_POST['scope'];
             //header("refresh:2; url=addrec.html");
         }
         else{
-            $qry = "INSERT INTO projectproposal  VALUES ('$groupcode', '$submitdate', '$lfname', '$llname', '$m1fname', '$m1lname', '$m2fnme', '$m2lname', '$m3fnme', '$m3lname', '$m4fnme', '$m4lname', '$title', '$ownername', '$businessaddress', '$yearsexistence','$contact', '$productservice', '$transactionnum', '$branchloc', '$scope')";
+            $qry = "INSERT INTO projectproposal  VALUES ('','$groupcode', '$submitdate', '$lfname', '$llname', '$m1fname', '$m1lname', '$m2fnme', '$m2lname', '$m3fnme', '$m3lname', '$m4fnme', '$m4lname', '$title', '$ownername', '$businessaddress', '$yearsexistence','$contact', '$productservice', '$transactionnum', '$branchloc', '$scope')";
             $qry2= "SELECT * FROM projectproposal";
             $res = mysqli_query($link,$qry2);
                 while($row = mysqli_fetch_array($res)):
-                    // $Check= str_ireplace($row['Title']);
-                    if(strcasecmp($groupcode , $row['groupcode']) == 0){
-                        echo "Identical With Group No. " . $row['groupcode'];
-                       // header("refresh:2; url=submitproposal.html");
+                    if($count >=5 ){
+                        echo "Sorry" . $row['groupcode'] . ", you already submitted maximum limit";
+                        //header("refresh:2; url=submitproposal.html");
                         mysqli_close($link);
-                        $count++;
                     }
                 endwhile;
-            if($count == 0){
+            if($count <= 4){
                 mysqli_query($link,$qry);
                 //header("refresh:2;student.php");
                 mysqli_close($link);
+                $count++;
             }
         }
        
