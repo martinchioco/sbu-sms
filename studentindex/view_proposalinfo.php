@@ -52,10 +52,7 @@
 </li>
 </ul>
 
-<form class="form-inline my-2 my-lg-0" method="POST" action="index.php">
-<input class="form-control mr-sm-2" type="text" ria-label="Search" name="searchit" placeholder="Search..">
-<input class="btn btn-outline-light my-2 my-sm-0" type="submit" name="search" value="Search">
-</form>
+
 </div>
 </nav>  
 

@@ -30,7 +30,9 @@ $resultCheck = mysqli_num_rows($result);
         
     }
     else{
-        echo "Wrong username or password!";
+            echo ("<script LANGUAGE='JavaScript'>
+            window.alert('Incorrect username/password!');
+            </script>");
         header("refresh:2;url=index.php");
     }
 endwhile;

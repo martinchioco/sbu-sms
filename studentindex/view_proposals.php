@@ -134,7 +134,7 @@
                 <td><?php echo $row['groupcode']?></td>    
                     <form method="POST" action="view_proposalinfo.php">
                                     <td><input class="btn btn-outline-dark" type="submit" name="view" value="VIEW"></td>
-                                    <input type="text" name="proposalnum" value="<?php echo $row['proposalnum']?>">
+                                    <input type="hidden" name="proposalnum" value="<?php echo $row['proposalnum']?>">
                     </form>
                 </tr>
                 </tbody>
