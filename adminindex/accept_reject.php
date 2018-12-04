@@ -10,6 +10,7 @@ if(isset($_POST['accept'])){
     echo ("<script LANGUAGE='JavaScript'>
     window.alert('Successfully accepted'); 
     </script>");
+    header("refresh:2;url=view_proposals.php");
     mysqli_close($link);
 }
 else if(isset($_POST['reject'])){

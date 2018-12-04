@@ -235,11 +235,11 @@
                           <div>
                           <tr><td colspan="2" style="text-align: center">
                                 <br><br>
-                                
-                                <input class="btn btn-outline-dark" name="accept" type="submit" value="ACCEPT">
+                                <form method="POST" action="accept_reject.php">
+                                <input class="btn btn-outline-dark" type="submit" name="accept" value="ACCEPT">
                                 <input class="btn btn-outline-dark" type="submit" name="reject" value="REJECT">
                                 <input type="hidden" name="proposalnum" value="<?php echo $row['proposalnum']?>"> 
-                                
+                                <form>
                             </td></tr>
                             </div>
                             <?php endwhile;?>
