@@ -1,7 +1,7 @@
 <?php
 session_start();
 $link = new mysqli('us-cdbr-iron-east-01.cleardb.net','bd7296d2ac0eff','4b840f06','heroku_a71bbafdab8fcb3');
-$groupcode = $_POST['groupcode'];	
+$proposalnum = $_POST['proposalnum'];	
 if(isset($_POST['accept'])){
     $qry = "Insert into proposeaccept SELECT * FROM projectproposal WHERE '$proposalnum' = proposalnum";
     $qry2="Delete from projectproposal where '$proposalnum' = proposalnum";
